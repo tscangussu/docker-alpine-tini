@@ -1,8 +1,9 @@
 FROM alpine:3.6
 
-LABEL maintainer="thiago.cangussu@gmail.com" \
-      description="Alpine Linux with Tini preinstalled and configured as entrypoint" \
-      version="0.16.1"
+LABEL Maintainer="Thiago Cangussu <thiago.cangussu@gmail.com>" \
+      Description="Alpine Linux with Tini preinstalled and configured as entrypoint" \
+      Version="0.16.1" \
+      Revision="1"
 
 ENV TINI_VERSION v0.16.1
 
@@ -10,4 +11,4 @@ ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini-muslc
 
 RUN chmod +x /usr/local/bin/tini
 
-ENTRYPOINT ["/usr/local/bin/tini", "--"]
+ENTRYPOINT ["tini", "--"]
